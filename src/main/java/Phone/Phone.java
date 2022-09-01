@@ -36,18 +36,18 @@ package Phone;
         }
 
 
-        public String call(){
-            return "Non Call";
-        }
-        public String sendMessage(){
-            return "Non Message";
-        }
-        public String takePhoto(){
-            return "Non Photo";
-        }
-        public String shootVideos(){
-            return "Non Videos";
-        }
+     public String call(){
+         return "Call from " + name + " " + model ;
+     }
+     public String sendMessage(){
+         return "Message from " + name + " " + model;
+     }
+     public String takePhoto(){
+         return "Photo from " + name + " " + model;
+     }
+     public String shootVideos(){
+         return "Videos from " + name + " " + model;
+     }
 
         public String toString() {
             return "Виробник: " + getName() + "; Модель: " + getModel() +
