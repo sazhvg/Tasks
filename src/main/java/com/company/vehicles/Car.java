@@ -3,14 +3,17 @@ import com.company.details.Engine;
 import com.company.professions.Driver;
 
 public class Car {
-    protected String brCar, classCar;
-    protected double weight;
+    private String brCar, classCar;
+    private double weight;
     public Driver driver;
     public Engine engine;
 
-    public Car (){
-        driver = new Driver();
-        engine = new Engine();
+    public Car (String name, String number, int age, String gender, int experience, String producer, double power){
+        driver = new Driver(name, number, age, gender, experience);
+        engine = new Engine(producer, power);
+        this.brCar = brCar;
+        this.classCar = classCar;
+        this.weight = weight;
     }
 
     public void setBrCar(String brCar){
@@ -51,9 +54,4 @@ public class Car {
         return "Інформація про авто: Марка: " + brCar + ", Клас " + classCar +";" + ", Вага " + weight +";" +
                  driver + engine +".";
     }
-
-/*
-    Створи похідний від Car клас - Lorry (вантажівка), який додатково характеризується також вантажопід-йомністю кузова.
-    Створи похідний від Car класу - SportCar, який додатково характеризується також граничною швидкістю.
-    Нехай клас Driver розширює клас Person.*/
 }

@@ -1,14 +1,11 @@
 package com.company.vehicles;
 
-import com.company.details.Engine;
-import com.company.professions.Driver;
-
 public class SportCar extends Car{
 
     private double maxSpeed;
-    public SportCar (){
-        driver = new Driver();
-        engine = new Engine();
+    public SportCar (String name, String number, int age, String gender, int experience, String producer, double power){
+        super(name,number, age, gender, experience, producer, power);
+        this.maxSpeed = maxSpeed;
     }
 
     public void setMaxSpeed(double maxSpeed){
@@ -19,8 +16,7 @@ public class SportCar extends Car{
     }
 
     public String toString(){
-        return "Інформація про авто: Марка: " + brCar + ", Клас " + classCar +", Вага " + weight +", максимальна швидкість " +maxSpeed +";" +
+        return "Інформація про авто: Марка: " + getBrCar() + ", Клас " + getClassCar() +", Вага " + getWeight() +", максимальна швидкість " +maxSpeed +";" +
                 driver + engine +".";
     }
-
 }

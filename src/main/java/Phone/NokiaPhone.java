@@ -15,6 +15,20 @@ public class NokiaPhone extends Phone  implements PhoneConnection, PhoneMedia{
         return videoPermission;
     }
 
+     public String call(){
+         return "Call from " + getName() + " " + getModel();
+     }
+     public String sendMessage(){
+         return "Message from " + getName() + " " + getModel();
+     }
+     public String takePhoto(){
+         return "Photo from " + getName() + " " + getModel();
+     }
+     public String shootVideos(){
+         return "Videos from " + getName() + " " + getModel();
+     }
+
+
     public String toString() {
         return "Виробник: " + getName() + "; Модель: " + getModel() + "; Сховище: "+ getStorege() +
                 "; ОЗУ: " + getMemory() +  "; Камера: " + getVideoPermission() + ".";
