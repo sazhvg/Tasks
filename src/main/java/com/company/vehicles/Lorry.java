@@ -1,15 +1,12 @@
 package com.company.vehicles;
 
-import com.company.details.Engine;
-import com.company.professions.Driver;
-
 public class Lorry extends Car{
 
     private double load;
 
-    public Lorry (){
-        driver = new Driver();
-        engine = new Engine();
+    public Lorry (String name, String number, int age, String gender, int experience, String producer, double power){
+        super(name,number, age, gender, experience, producer, power);
+        this.load = load;
     }
 
     public void setLoad(double load){
@@ -20,7 +17,7 @@ public class Lorry extends Car{
     }
 
     public String toString(){
-        return "Інформація про авто: Марка: " + brCar + ", Клас " + classCar +", Вага " + weight +", вантажопід-йомністю кузова" +load +";" +
+        return "Інформація про авто: Марка: " + getBrCar() + ", Клас " + getClassCar() +", Вага " + getWeight() +", вантажопід-йомністю кузова" +load +";" +
                 driver + engine +".";
     }
 }

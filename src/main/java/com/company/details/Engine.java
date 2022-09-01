@@ -4,6 +4,11 @@ public class Engine {
     private String producer;
     private double power;
 
+    public Engine (String producer, double power){
+        this.producer = producer;
+        this.power = power;
+    }
+
     public void setProducer(String producer){
         this.producer = producer;
     }
