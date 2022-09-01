@@ -18,6 +18,20 @@ public class SportCar extends Car{
         return maxSpeed;
     }
 
+    public void start(){
+        System.out.println("Стартую з SportCar");
+    }
+    public void stop(){
+        System.out.println("SportCar зупиняємося");
+    }
+    public void turnRight() {
+        System.out.println("Поворот SportCar направо");
+    }
+    public void turnLeft(){
+        System.out.println("Поворот SportCar наліво");
+    }
+
+
     public String toString(){
         return "Інформація про авто: Марка: " + getBrCar() + ", Клас " + getClassCar() +", Вага " + getWeight() +", максимальна швидкість " +maxSpeed +";" +
                 getDriver() + getEngine() +".";

@@ -20,6 +20,19 @@ public class Lorry extends Car{
         return load;
     }
 
+    public void start(){
+        System.out.println("Стартую з Lorry");
+    }
+    public void stop(){
+        System.out.println("Lorry зупиняємося");
+    }
+    public void turnRight() {
+        System.out.println("Поворот Lorry направо");
+    }
+    public void turnLeft(){
+        System.out.println("Поворот Lorry наліво");
+    }
+
     public String toString(){
         return "Інформація про авто: Марка: " + getBrCar() + ", Клас " + getClassCar() +", Вага " + getWeight() +", вантажопід-йомністю кузова" +load +";" +
                 getDriver() + getEngine() +".";
