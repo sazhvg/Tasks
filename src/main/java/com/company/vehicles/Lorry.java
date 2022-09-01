@@ -1,14 +1,18 @@
 package com.company.vehicles;
 
+import com.company.details.Engine;
+import com.company.professions.Driver;
+
 public class Lorry extends Car{
 
     private double load;
 
-    public Lorry (String name, String number, int age, String gender, int experience, String producer, double power){
-        super(name,number, age, gender, experience, producer, power);
+    public Lorry (Driver driver, Engine engine, String brCar, String  classCar, double weight){
+        super(driver, engine, brCar, classCar, weight);
         this.load = load;
     }
 
+    // методи (setDriver, getDriver, setEngine, getEngine) спадкються
     public void setLoad(double load){
         this.load = load;
     }
@@ -18,6 +22,6 @@ public class Lorry extends Car{
 
     public String toString(){
         return "Інформація про авто: Марка: " + getBrCar() + ", Клас " + getClassCar() +", Вага " + getWeight() +", вантажопід-йомністю кузова" +load +";" +
-                driver + engine +".";
+                getDriver() + getEngine() +".";
     }
 }
