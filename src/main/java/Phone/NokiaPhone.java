@@ -3,7 +3,7 @@ package Phone;
 public class NokiaPhone extends Phone  implements PhoneConnection, PhoneMedia{
 
     private int videoPermission;
-    NokiaPhone( String name, String model, int storege, int memory, int videoPermission ) {
+    public NokiaPhone( String name, String model, int storege, int memory, int videoPermission ) {
         super(name, model, storege, memory);
         this.videoPermission = videoPermission;
     }
