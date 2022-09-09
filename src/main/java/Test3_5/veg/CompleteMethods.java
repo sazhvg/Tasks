@@ -18,24 +18,24 @@ public class CompleteMethods {
      а списки з рядків 2-4 (також відмічені коментарями)  !!! в завданні відсутня дія у фразі після ", а".  */
 
     //Відповідь на 1 питання кроку 2:
-    public static <T extends MeasuredInKilograms> Set<T> getUniqueMeasurableItems(List<T> list) {
+/*    public static <T extends MeasuredInKilograms> Set<T> getUniqueMeasurableItems(List<T> list) {
         // some specific processing to happen here
         return new HashSet<T>(list);
     }
-
+*/
 
     //Відповідь на 2 питання кроку 2:
-    public static <T extends MeasuredInLiters> Set<T> getUniqueMeasurableItems(List<T> list) {
+/*    public static <T extends MeasuredInLiters> Set<T> getUniqueMeasurableItems(List<T> list) {
         // some specific processing to happen here
         return new HashSet<T>(list);
     }
-
+*/
 
     //Відповідь на 3 питання кроку 2:
-    public static <T extends Countable & MeasuredInLiters> Set<T> getUniqueMeasurableItems(List<T> list) {
+/*    public static <T extends Countable & MeasuredInLiters> Set<T> getUniqueMeasurableItems(List<T> list) {
         // some specific processing to happen here
         return new HashSet<T>(list);
-    }
+    }*/
     //Відповідь на 3* питання кроку 2: packedBeverages буде мати колекцію обʼєктів типу Set<T>.
     // Що це за тип? - Клас HashSet реализує інтерфейс Set та утворює колекцію, яка зберігає елементи в хеш-таблиці.
     // Чи можна визначити змінну такого типу в коді? -Так (але не впевнений, думаю що так як для любого класу).
