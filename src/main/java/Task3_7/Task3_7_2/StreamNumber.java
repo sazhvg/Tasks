@@ -1,6 +1,5 @@
 package Task3_7.Task3_7_2;
 
-
 public class StreamNumber {
 
     public static int flagNumber  (int item, FilterNumber ref) {
