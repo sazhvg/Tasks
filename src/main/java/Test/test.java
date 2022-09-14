@@ -5,6 +5,7 @@ import java.util.*;
 
 public class test {
     public static void main(String[] args) {
+
         String [] students= {"Антонов", "Шевченко", "Бойко", "Шевченко", "Кравченко", "Савицький", "Антонов", "Шевченко", "Тетерів"};
         List<String> list = new ArrayList<>();
         Set<String> studentslist = new TreeSet<>();
@@ -40,6 +41,5 @@ public class test {
         pr.put("Молоко", 10.15F);
         pr.put("Хліб", 5.55F);
         System.out.println(pr.get("Хліб"));*/
-
     }
 }
