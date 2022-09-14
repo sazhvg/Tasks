@@ -1,23 +1,34 @@
 package Task3_7.Task3_7_2;
 
-import java.util.Arrays;
+public class SumNumbers{
 
-public class SumNumbers {
+    public static <T extends Integer> void SumNumb(T[] array, SumNumbIF <T> ref) {
+        T sum  = ref.sumNumb(array) ;
+        System.out.println("Сума парних елементів становить: " + sum);
+    }
 
     public static void main(String[] args) {
-        
-        int [] arrInt = {5, 7, 4, 9, 15, 18, 6, 11, 9, 25, 27, 88};
-        int [] sum = {0, 0};
+        SumNumbIF <Integer> refInt = (A) ->{
+            Integer sum = 0;
+            for ( int i : A){
+                if (i % 2 != 0) {
+                    sum +=i;
+                }
+            }
+            return sum;
+        };
 
+        Integer[] arrInt = {5, 7, 4, 9, 15, 18, 6, 11, 9, 25, 27, 88};
+        SumNumbers.SumNumb(arrInt, refInt);
+    }
+}
+
+/*
         sum[0] = Arrays.stream(arrInt)
                 .filter((a) -> (a%2)==0).sum();
         sum[1] = Arrays.stream(arrInt)
                 .filter((a) -> (a%2)!=0).sum();
-
-        System.out.println("Сума парних елементів становить: " + sum[0] +
-                "\nсума непарних елементів становить: "+ sum[1]);
-    }
-}
+*/
 
 //Завдання 2
 //      • Реалізуй та продемонструй метод, що знаходить суму парних та непарних елементів цілочисельного масиву.
