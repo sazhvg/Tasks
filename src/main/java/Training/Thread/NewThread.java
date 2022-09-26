@@ -21,9 +21,7 @@ public class NewThread implements Runnable{
                 System.out.println(name + ": " + i);
                 Thread.sleep(200);
                 synchronized (this) {
-                    while (suspendFlag){
-                        wait();
-                    }
+                    while (suspendFlag) wait();
                 }
             }
         }catch (InterruptedException e){
