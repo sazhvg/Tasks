@@ -1,3 +1,4 @@
+/*
 package com.assets.memodapp.appsrc.appstart.appstart.mymodappdemo;
 
 import com.assets.memodapp.appsrc.appfuncs.appfuncs.simplefuncs.SimpleMathFuncs;
@@ -8,3 +9,4 @@ public class MyModAppDemo {
         System.out.println("Найбільший загальний множитель 35 та 105 - " + SimpleMathFuncs.gcf(35, 105));
     }
 }
+*/
