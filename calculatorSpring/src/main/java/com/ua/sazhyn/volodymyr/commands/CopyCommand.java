@@ -1,0 +1,16 @@
+package com.ua.sazhyn.volodymyr.commands;
+
+import com.ua.sazhyn.volodymyr.commands.editor.Editor;
+
+public class CopyCommand extends Command {
+
+    public CopyCommand(Editor editor) {
+        super(editor);
+    }
+
+    @Override
+    public boolean execute() {
+        editor.clipboard = editor.textField.getSelectedText();
+        return false;
+    }
+}
