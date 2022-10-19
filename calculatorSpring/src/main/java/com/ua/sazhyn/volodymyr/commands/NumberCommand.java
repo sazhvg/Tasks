@@ -1,31 +1,19 @@
 package com.ua.sazhyn.volodymyr.commands;
 
-import com.ua.sazhyn.volodymyr.commands.Command;
 import com.ua.sazhyn.volodymyr.commands.editor.Editor;
 
 public class NumberCommand extends Command {
 
-
-    public NumberCommand(Editor editor, String str) {
+    static String number = "";
+    private String n;
+    public NumberCommand(Editor editor, String n) {
         super(editor);
+        this.n = n;
     }
     @Override
     public boolean execute() {
-
-
-
- //       editor.newDisplay("222");
-////        editor.clipboard = editor.textField.getSelectedText();
-
-        System.out.println("11");
-        if (editor.clipboard == null || editor.clipboard.isEmpty()) return false;
-        System.out.println("22");
-
-        backup();
-//        editor.textField.insert(editor.clipboard, editor.textField.getCaretPosition());
-        editor.textField.insert("editor.clipboard", editor.textField.getCaretPosition());
+        number = number + n;
+        editor.textField.insert(n, editor.textField.getCaretPosition());
         return true;
-
-//        return false;
     }
 }

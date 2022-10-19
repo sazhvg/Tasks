@@ -2,10 +2,10 @@ package com.ua.sazhyn.volodymyr.commands;
 
 import com.ua.sazhyn.volodymyr.commands.editor.Editor;
 
-public class PlusCommand extends Command {
+public class MinusCommand extends Command {
 
-    private final String OPERATOR = "+";
-    public PlusCommand(Editor editor) {
+    private final String OPERATOR = "-";
+    public MinusCommand(Editor editor) {
         super(editor);
     }
     @Override
@@ -17,7 +17,7 @@ public class PlusCommand extends Command {
             super.push(NumberCommand.number);
             NumberCommand.number = "";
             super.push(OPERATOR);
-            editor.textField.insert(" + ", editor.textField.getCaretPosition());
+            editor.textField.insert(" - ", editor.textField.getCaretPosition());
         }
         return true;
     }

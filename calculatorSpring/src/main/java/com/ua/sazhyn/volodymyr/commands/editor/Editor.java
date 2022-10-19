@@ -1,98 +1,58 @@
 package com.ua.sazhyn.volodymyr.commands.editor;
 
 import com.ua.sazhyn.volodymyr.commands.*;
+import org.springframework.stereotype.Component;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 
+@Component
 public class Editor {
-
     public JTextArea textField;
-    public String clipboard = "0.0";
-//    private CommandHistory history = new CommandHistory();
-    public Double result = 0.0;///
     public void init() {
         JFrame frame = new JFrame("Калькулятор");
+        JPanel content = new JPanel();
+        frame.setContentPane(content);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-//        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        textField = new JTextArea(clipboard);
-//        textField.setLineWrap(true);
-//        content.add(textField);
-        Font font = new Font ("Consolas", Font.BOLD, 12); // Установить стиль шрифта
-        Font font1=new Font("Consolas", Font.BOLD,16);
+        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+        textField = new JTextArea();
+        textField.setLineWrap(true);
+        content.add(textField);
+        JPanel buttons = new JPanel(new FlowLayout(FlowLayout.CENTER));
+
+        Font font = new Font("Consolas", Font.BOLD, 12); // Установить стиль шрифта
         textField.setFont(font);
-        textField.setBackground(Color.white);
-        textField.setEditable (false); // Установить текстовое поле, чтобы не редактировать
+        buttons.setLayout(new GridLayout(6, 4));
+        Editor editor = this;
 
-        JPanel pan1 = new JPanel (); // Установить макет текстового поля
-        pan1.setLayout(new GridLayout(1,1,5,5));
-        pan1.setBorder(BorderFactory.createEmptyBorder(5, 5, 0, 5));
-        pan1.add(textField);
-
-        JPanel panBody = new JPanel (); // Добавить кнопку в panBody
-        panBody.setLayout(new GridLayout(6,4));
-
-        // Создать рамочное окно
-        frame.setLayout (new BorderLayout ()); // Макет
-        frame.add(pan1, BorderLayout.NORTH);
-        frame.add(panBody,BorderLayout.CENTER);
-//        frame.setSize (80, 200); // Размер
-//        frame.setLocation (160, 320); // Местоположение
-        frame.setVisible(true);
-        frame.setResizable(false);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(450, 200);
-        frame.setLocationRelativeTo(null);
-        frame.setVisible(true);
-
-        JButton button_clear       = new MyButton("C",     Color.white,    font1, true,    KeyEvent.VK_CLEAR);
-        JButton button_delete      = new MyButton("Delete",Color.white,    font1, true,    KeyEvent.VK_BACK_SPACE);
-        JButton button_plus        = new MyButton("+",     Color.white,    font1, false,   KeyEvent.VK_ADD);
-        JButton button_minus       = new MyButton("-",     Color.white,    font1, false,   KeyEvent.VK_SUBTRACT);
-        JButton button_multiply    = new MyButton("*",     Color.white,    font1, false,   KeyEvent.VK_MULTIPLY);
-        JButton button_divide      = new MyButton("/",     Color.white,    font1, false,   KeyEvent.VK_SLASH);
-        JButton button_spot        = new MyButton(".",     Color.white,    font1, false,   KeyEvent.VK_PERIOD);
-        JButton button_is          = new MyButton("=",     Color.pink,     font1, true,    KeyEvent.VK_EQUALS);
-        JButton button_sin         = new MyButton("sin",   Color.white,    font1, false);
-        JButton button_cos         = new MyButton("cos",   Color.white,    font1, false);
-        JButton button_tan         = new MyButton("tan",   Color.white,    font1, false);
-        JButton button_log         = new MyButton("log",   Color.white,    font1, false);
-        JButton button_bracket_r   = new MyButton("(",     Color.white,    font1, true);
-        JButton button_bracket_l   = new MyButton(")",     Color.white,    font1, true);
+        JButton button_clear =      new MyButton("C",       Color.white,    false);
+        JButton button_delete =     new MyButton("Delete",  Color.white,    false);
+        JButton button_plus =       new MyButton("+",       Color.white,    false);
+        JButton button_minus =      new MyButton("-",       Color.white,    false);
+        JButton button_multiply =   new MyButton("*",       Color.white,    false);
+        JButton button_divide =     new MyButton("/",       Color.white,    false);
+        JButton button_spot =       new MyButton(".",       Color.white,    false);
+        JButton button_is =         new MyButton("=",       Color.pink,     true);
+        JButton button_sin =        new MyButton("sin",     Color.white,    false);
+        JButton button_cos =        new MyButton("cos",     Color.white,    false);
+        JButton button_tan =        new MyButton("tan",     Color.white,    false);
+        JButton button_log =        new MyButton("log",     Color.white,    false);
+        JButton button_bracket_r =  new MyButton("(",       Color.white,    false);
+        JButton button_bracket_l =  new MyButton(")",       Color.white,    false);
         JButton[] button = new MyButton[10];
         for (int i = 0; i < 10; i++) {
-            button[i] = new MyButton(""+i, Color.white, font1,  true, i + 48);
+            button[i] = new MyButton("" + i, Color.white, true);
+            String str = Integer.toString(i);
+            button[i].addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    executeCommand(new NumberCommand(editor, str));
+                }
+            });
         }
-        // Схема интерфейса калькулятора
-        panBody.add(button_clear);
-        panBody.add(button_delete);
-        panBody.add(button_bracket_r);
-        panBody.add(button_bracket_l);
-        panBody.add(button_sin);
-        panBody.add(button_cos);
-        panBody.add(button_tan);
-        panBody.add(button_log);
-        panBody.add(button[7]);
-        panBody.add(button[8]);
-        panBody.add(button[9]);
-        panBody.add(button_plus);
-        panBody.add(button[4]);
-        panBody.add(button[5]);
-        panBody.add(button[6]);
-        panBody.add(button_minus);
-        panBody.add(button[1]);
-        panBody.add(button[2]);
-        panBody.add(button[3]);
-        panBody.add(button_multiply);
-        panBody.add(button_divide);
-        panBody.add(button[0]);
-        panBody.add(button_spot);
-        panBody.add(button_is);
-        panBody.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
 
-        Editor editor = this;
         button_plus.addActionListener(
                 new ActionListener() {
                     @Override
@@ -101,54 +61,58 @@ public class Editor {
                     }
                 });
 
-        button[1].addActionListener(
+        button_minus.addActionListener(
                 new ActionListener() {
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        executeCommand(new NumberCommand(editor, "1"));
+                        executeCommand(new MinusCommand(editor));
                     }
                 });
 
+        button_is.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        executeCommand(new IsCommand(editor));
+                    }
+                });
 
- /*       ctrlC.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new CopyCommand(editor));
-            }
-        });
-        ctrlX.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new CutCommand(editor));
-            }
-        });
-        ctrlV.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new PasteCommand(editor));
-            }
-        });
-        ctrlZ.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                undo();
-            }
-        });
-        ctrlPlus.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                executeCommand(new PlusCommand(editor));
-            }
-        });*/
+        // Схема интерфейса калькулятора
+
+        buttons.add(button_clear);
+        buttons.add(button_delete);
+        buttons.add(button_bracket_r);
+        buttons.add(button_bracket_l);
+        buttons.add(button_sin);
+        buttons.add(button_cos);
+        buttons.add(button_tan);
+        buttons.add(button_log);
+        buttons.add(button[7]);
+        buttons.add(button[8]);
+        buttons.add(button[9]);
+        buttons.add(button_plus);
+        buttons.add(button[4]);
+        buttons.add(button[5]);
+        buttons.add(button[6]);
+        buttons.add(button_minus);
+        buttons.add(button[1]);
+        buttons.add(button[2]);
+        buttons.add(button[3]);
+        buttons.add(button_multiply);
+        buttons.add(button_divide);
+        buttons.add(button[0]);
+        buttons.add(button_spot);
+        buttons.add(button_is);
+
+        buttons.setBorder(BorderFactory.createEmptyBorder(0, 5, 5, 5));
+        content.add(buttons);
+        frame.setSize(450, 400);
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true);
     }
-/*    private void executeCommand(Command command) {
-        if (command.execute()) {
-            Command.push(command);
-        }*/
-        private void executeCommand(Command command) {
-            if (command.execute()) {
-                Command.push(command.itemCommand);
-            }
+
+    private void executeCommand(Command command) {
+        command.execute();
     }
 /*    private void undo() {
         if (Command.isEmpty()) return;
@@ -156,6 +120,6 @@ public class Editor {
         Command command = Command.pop();
         if (command != null) {
             command.undo();
-        }*/
-    }
+        }
+    }*/
 }
