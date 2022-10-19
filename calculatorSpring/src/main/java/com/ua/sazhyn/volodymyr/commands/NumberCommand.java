@@ -16,4 +16,5 @@ public class NumberCommand extends Command {
         editor.textField.insert(n, editor.textField.getCaretPosition());
         return true;
     }
+
 }

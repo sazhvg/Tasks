@@ -48,4 +48,5 @@ public class IsCommand extends Command {
         }
         return resalt;
     }
+
 }

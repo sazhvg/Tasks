@@ -33,4 +33,5 @@ public abstract class Command {
         editor.textField.setText(backup);
     }
     public abstract boolean execute();
+
 }

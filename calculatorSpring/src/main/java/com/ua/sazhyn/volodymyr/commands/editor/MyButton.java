@@ -10,4 +10,5 @@ public class MyButton extends JButton {
         this.setBackground(color);
         this.setOpaque(opaque);
     }
+
 }
