@@ -40,5 +40,6 @@ public class Editor {
         while (!str.equals("="));
         System.out.println(Command.calculate());
     }
+
 }
 
