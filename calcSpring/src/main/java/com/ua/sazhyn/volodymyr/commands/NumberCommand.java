@@ -21,6 +21,7 @@ public class NumberCommand extends Command {
             System.out.println("Спробуйте ще раз.");
         }
     }
+
     private static boolean isDigit(String s) throws NumberFormatException {
         try {
             Integer.parseInt(s);

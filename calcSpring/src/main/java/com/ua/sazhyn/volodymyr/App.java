@@ -12,7 +12,6 @@ public class App {
         Editor editor = applicationContext.getBean(Editor.class);
         editor.init();
     }
-
 }
 
 /*
