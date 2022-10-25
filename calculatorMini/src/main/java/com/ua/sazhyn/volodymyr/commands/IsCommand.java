@@ -5,6 +5,7 @@ import com.ua.sazhyn.volodymyr.commands.editor.Editor;
 public class IsCommand extends Command {
 
     private final String OPERATOR = "=";
+/*
     public IsCommand(Editor editor) {
         super(editor);
     }
@@ -23,6 +24,7 @@ public class IsCommand extends Command {
         }
         return true;
     }
+*/
 
     public int calculate(){
         int resalt = 0;

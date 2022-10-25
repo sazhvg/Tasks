@@ -1,25 +1,28 @@
 package com.ua.sazhyn.volodymyr.commands;
 
 import com.ua.sazhyn.volodymyr.commands.editor.Editor;
-import javax.swing.*;
 
 public class PlusCommand extends Command {
 
+    private final String OPERATOR = "+";
+/*
     public PlusCommand(Editor editor) {
         super(editor);
     }
-    @Override
-   public boolean execute() {
+*/
 /*
+    @Override
+    public boolean execute() {
 
-        editor.clipboard = editor.textField.getSelectedText();
-        if (editor.clipboard == null || editor.clipboard.isEmpty()) return false;
-        System.out.println("22");
-
-        editor.textField.insert(editor.clipboard, editor.textField.getCaretPosition());
-        editor.textField.insert("editor.clipboard", editor.textField.getCaretPosition());
+        if (NumberCommand.number == null || NumberCommand.number.isEmpty()){
+            return false;
+        } else {
+            super.push(NumberCommand.number);
+            NumberCommand.number = "";
+            super.push(OPERATOR);
+        }
+        return true;
+    }
 */
 
-        return true;
-   }
 }
