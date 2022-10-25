@@ -24,46 +24,36 @@ public class JsonController {
 //projects – поверне список з назвами проектів які були збережені до цього
     @GetMapping("/projects")
     public Set<Data> getProjects() {
-        Set<Data> data = new HashSet<>();
 //        Data.getData().stream().filter((p) -> p.getProject() != null).forEach(p -> System.out.println(p.getProject()));
-        data = Data.getData().stream().filter((p) -> p.getProject() != null).collect(Collectors.toSet());
-        return data;
+        return Data.getData().stream().filter((p) -> p.getProject() != null).collect(Collectors.toSet());
     }
 
 //failed-results – поверне список з результатами які не “success”
     @GetMapping("/failed-results")
     public Set<Data> getFailedResults() {
-        Set<Data> data = new HashSet<>();
 //        Data.getData().stream().filter((p) -> !p.getResult().equals("success")).forEach(p -> System.out.println(p.getProject()));
-        data = Data.getData().stream().filter((p) -> !p.getResult().equals("success")).collect(Collectors.toSet());
-        return data;
+        return Data.getData().stream().filter((p) -> !p.getResult().equals("success")).collect(Collectors.toSet());
     }
 
 //long-compilation – поверне список з об’єктами в яких compilationTime >= 1000
     @GetMapping("/long-compilation")
     public Set<Data> getLongCompilation() {
-        Set<Data> data = new HashSet<>();
 //        Data.getData().stream().filter((p) -> p.getCompilationTime() >= 1000).forEach(p -> System.out.println(p.getProject()));
-        data = Data.getData().stream().filter((p) -> p.getCompilationTime() >= 1000).collect(Collectors.toSet());
-        return data;
+        return Data.getData().stream().filter((p) -> p.getCompilationTime() >= 1000).collect(Collectors.toSet());
     }
 
 //normal -compilation – поверне список з об’єктами в яких compilationTime < 1000
     @GetMapping("/normal -compilation")
     public Set<Data> getNormalCompilation() {
-        Set<Data> data = new HashSet<>();
 //        Data.getData().stream().filter((p) -> p.getCompilationTime() < 1000).forEach(p -> System.out.println(p.getProject()));
-        data = Data.getData().stream().filter((p) -> p.getCompilationTime() < 1000).collect(Collectors.toSet());
-        return data;
+        return Data.getData().stream().filter((p) -> p.getCompilationTime() < 1000).collect(Collectors.toSet());
     }
 
 //success-result - – поверне список з результатами які “success”
     @GetMapping("/success-result")
     public Set<Data> getSuccessResults() {
-        Set<Data> data = new HashSet<>();
 //        Data.getData().stream().filter((p) -> p.getResult().equals("success")).forEach(p -> System.out.println(p.getProject()));
-        data = Data.getData().stream().filter((p) -> p.getResult().equals("success")).collect(Collectors.toSet());
-        return data;
+        return Data.getData().stream().filter((p) -> p.getResult().equals("success")).collect(Collectors.toSet());
     }
 }
 /*	Створи простий веб-сервіс, який приймає json (за допомогою Postman) такого вигляду:

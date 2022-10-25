@@ -1,11 +1,14 @@
 package com.ua.sazhyn.volodymyr.commands.editor;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class MyButton extends JButton {
 
-    public MyButton(String label, int key) {
+    public MyButton(String label, Color color, boolean opaque) {
         super(label);
-        this.setMnemonic(key);// Установить горячую клавишу
+        this.setBackground(color);
+        this.setOpaque(opaque);
     }
+
 }
