@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head   th:insert="template :: header">
+</head>
+<body>
+<nav th:insert="template :: navbar"></nav>
+<script th:insert="template :: src1"></script>
+<script th:insert="template :: src2"></script>
+<script th:insert="template :: src3"></script>
+<div class="container">
+    <h2>Реєстрація користувача</h2>
+    <hr/>
+    <form th:action="@{/user/registration}" th:object="${user}" method="post">
+        <input type="text" th:field="*{username}" placeholder="Ім'я користувача" class="form-control col-4 mb-4"/>
+        <input type="email" th:field="*{email}" placeholder="Email" class="form-control col-4 mb-4"/>
+        <input type="text" th:field="*{phoneNumber}" placeholder="Номер телефона" class="form-control col-4 mb-4"/>
+        <input type="password" th:field="*{password}" placeholder="Password" class="form-control col-4 mb-4"/>
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
+        <button class="btn btn-primary" type="submit">Зареєструвати</button>
+    </form>
+
+
+<!--    &lt;!&ndash;<#if errorMessage??>&ndash;&gt;-->
+<!--    &lt;!&ndash;<h2 style="color: red">${errorMessage}</h2>&ndash;&gt;-->
+<!--    &lt;!&ndash;</#if>&ndash;&gt;-->
+<!--    &lt;!&ndash;</@t.template>&ndash;&gt;-->
+
+
+
+    <hr/>
+<!--    <a th:href="@{/home}" class="btn btn-primary mb-2">Home</a>-->
+</div>
+</body>
+</html>

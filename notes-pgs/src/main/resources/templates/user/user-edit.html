@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head   th:insert="template :: header"></head>
+    <body>
+        <nav th:insert="template :: navbar"></nav>
+        <!--    <div class="container mt-4">-->
+        <!--        <#nested/>-->
+        <!--    </div>-->
+        <script th:insert="template :: src1"></script>
+        <script th:insert="template :: src2"></script>
+        <script th:insert="template :: src3"></script>
+
+        <h1 style="text-align: center">Редагування користувача th:text = "${user.name}" </h1>
+        <hr/>
+
+
+        <!--<form action="/admin/user/edit" method="post">-->
+        <!--    <#list roles as role>-->
+        <!--    <div>-->
+        <!--        <label><input type="checkbox" name="${role}" ${user.roles?seq_contains(role)?string("checked", "")}>${role}</label>-->
+        <!--    </div>-->
+        <!--</#list>-->
+        <!--<input type="hidden" value="${user.id}" name="userId">-->
+        <!--<input type="hidden" value="${_csrf.token}" name="_csrf">-->
+        <!--<button type="submit" class="btn btn-dark">Сохранить</button>-->
+        <!--</form>-->
+
+        <!--</@t.template>-->
+
+<!--&lt;!&ndash;    <table border = "1">&ndash;&gt;-->
+<!--<a th:href="@{/user/registration}" class="btn btn-primary mb-2">Add User</a>-->
+<!--<table class="table table-bordered table-striped" id="userTable">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th scope="col">User Name</th>-->
+<!--        <th scope="col">Email</th>-->
+<!--        <th scope="col">Номер телефона</th>-->
+<!--        <th scope="col">Активність</th>-->
+<!--        <th scope="col">Ролі</th>-->
+<!--        <th scope="col">Бан</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr  th:each="user : ${users}">-->
+<!--        <th><a th:text="${user.username}" th:href="@{/admin/user/edit/{username}(username=${user.username})}"></a></th>-->
+<!--        <th th:text="${user.email}"></th>-->
+<!--        <th th:text="${user.phoneNumber}"></th>-->
+<!--        <th th:text="${user.active} ? 'Enabled' : 'Disabled'">?</th>-->
+<!--        <th>???????</th>-->
+<!--        &lt;!&ndash;            <th th:each="role : ${user.roles}"></th>&ndash;&gt;-->
+<!--        &lt;!&ndash;                        <th><#list user.roles as role>${role}</#list></th>&ndash;&gt;-->
+<!--        &lt;!&ndash;            <th th:each="role : ${user.roles}">&ndash;&gt;-->
+<!--        &lt;!&ndash;&lt;!&ndash;                <p th:text="${role.name}?"></p>&ndash;&gt;&ndash;&gt;-->
+<!--        &lt;!&ndash;            </th>&ndash;&gt;-->
+<!--        <th>-->
+<!--            <form action="@{/admin/user/ban/${user.id}}" method="post">-->
+<!--                <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<!--                <input type="submit" class="btn btn-light" value="Бан">-->
+<!--            </form>-->
+<!--            &lt;!&ndash;                <form action="/admin/user/ban/${user.id}" method="post">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <input type="hidden" name="_csrf" value="${_csrf.token}">&ndash;&gt;-->
+<!--            &lt;!&ndash;                    <input type="submit" class="btn btn-light" value="Бан">&ndash;&gt;-->
+<!--            &lt;!&ndash;                </form>&ndash;&gt;-->
+<!--        </th>-->
+<!--        &lt;!&ndash;            <th><a href="/admin/user/edit/${user.id}">Редактировние</a></th>&ndash;&gt;-->
+<!--        &lt;!&ndash;            <th><a href="/user/${user.id}">Подробная информация</a></th>&ndash;&gt;-->
+<!--    </tr>-->
+<!--    &lt;!&ndash;    <#else>&ndash;&gt;-->
+<!--    &lt;!&ndash;    <h3>Пользователей нет</h3>&ndash;&gt;-->
+<!--    &lt;!&ndash;</#list>&ndash;&gt;-->
+<!--    </tbody>-->
+<!--</table>-->
+    </body>
+</html>

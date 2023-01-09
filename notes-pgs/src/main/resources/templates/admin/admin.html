@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head   th:insert="template :: header">
+</head>
+<body>
+    <nav th:insert="template :: navbar"></nav>
+<!--    <div class="container mt-4">-->
+<!--        <#nested/>-->
+<!--    </div>-->
+    <script th:insert="template :: src1"></script>
+    <script th:insert="template :: src2"></script>
+    <script th:insert="template :: src3"></script>
+
+    <h1 style="text-align: center">Панель адміністратора</h1>
+    <hr/>
+
+<!--    <table border = "1">-->
+    <a th:href="@{/user/registration}" class="btn btn-primary mb-2">Add User</a>
+        <table class="table table-bordered table-striped" id="userTable">
+        <thead>
+            <tr>
+                <th scope="col">User Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Активність</th>
+                <th scope="col">Ролі</th>
+            </tr>
+        </thead>
+    <tbody>
+        <tr th:each="user : ${users}">
+            <th><a th:text="${user.username}" th:href="@{/admin/user/edit/{username}(username=${user.username})}"></a></th>
+            <th th:text="${user.email}"></th>
+            <th><a th:text="${user.active} ? 'Enabled' : 'Disabled'" th:href="@{/admin/user/ban/{id}(id=${user.id})}"></a></th>
+<!--            <th th:each="role : ${user.roles}">****</th>-->
+<!--            <th><#list user.roles as role>${role}</#list></th>-->
+<!--            <th th:each="role : ${user.roles}">-->
+            <!--                <p th:text="${role.name}?"></p>-->
+<!--            </th>-->
+<!--            <th>-->
+<!--                <form action="/admin/user/ban/${user.id}" method="post">-->
+<!--                    <input type="hidden" name="_csrf" value="${_csrf.token}">-->
+<!--                    <input type="submit" class="btn btn-light" value="Бан">-->
+<!--                </form>-->
+<!--            </th>-->
+<!--            <th><a href="/admin/user/edit/${user.id}">Редактировние</a></th>-->
+            <!--            <th><a href="/user/${user.id}">Подробная информация</a></th>-->
+        </tr>
+        <!--    <#else>-->
+        <!--    <h3>Пользователей нет</h3>-->
+        <!--</#list>-->
+        </tbody>
+    </table>
+</body>
+</html>
